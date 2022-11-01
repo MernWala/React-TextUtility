@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FaCopy } from "react-icons/fa";
+import { VscClearAll } from "react-icons/vsc";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
@@ -11,29 +13,53 @@ export default function TextForm(props) {
   const toLowerCase = () => {
     let newText = text.toLowerCase();
     setText(newText);
-  }
+  };
 
   const handleOnChange = (event) => {
-    console.log("onchange handler fired");
     setText(event.target.value);
   };
+
+  let copyToClipboard = (event) => {
+    console.log("Copy button is pushed");
+  };
+
+  let capitilize = () => {
+    let rawData = text;
+    let newArray = rawData.split(" ");
+    let finalData = "";
+    for(let i=0; i<newArray.length; i++)
+      finalData = finalData + newArray[i].charAt(0).toUpperCase() + newArray[i].toLowerCase().substr(1, newArray[i].length - 1) + " ";
+    setText(finalData)
+  }
+
 
   return (
     <>
       <div className="container my-3">
-        <h3>{props.heading}</h3>
-        <div className="mb-3">
-          <textarea
-            className="form-control"
-            value={text}
-            onChange={handleOnChange}
-            id="MyBox"
-            rows="10"
-            placeholder="Enter Text Here"
-          ></textarea>
+        <div className="col-sm-12 d-flex justify-content-between">
+          <h3>{props.heading}</h3>
+          <div>
+            <button className="btn btn-outline-primary mx-1 btn-sm" onClick={copyToClipboard}>
+              <FaCopy />
+            </button>
+            <button className="btn btn-outline-danger mx-1 btn-sm" onClick={() => {setText("")}}>
+              <VscClearAll />
+            </button>
+          </div>
         </div>
-        <button className="btn btn-primary mx-1" onClick={toUpperCase}>Convert to Uppercase</button>
-        <button className="btn btn-primary mx-1" onClick={toLowerCase}>Convert to Lowercase</button>
+        <div className="mb-3">
+          <textarea className="form-control" value={text} onChange={handleOnChange} id="MyBox" rows="10" placeholder="Enter Text Here"></textarea>
+        </div>
+        <button className="btn btn-primary mx-1" onClick={toUpperCase}>
+          Uppercase
+        </button>
+        <button className="btn btn-primary mx-1" onClick={toLowerCase}>
+          Lowercase
+        </button>
+
+        <button className="btn btn-primary mx-1" onClick={capitilize}>
+          Capitilize
+        </button>
       </div>
 
       <div className="container my-3">
@@ -44,7 +70,7 @@ export default function TextForm(props) {
           <ul>
             <li>
               <p>
-                {text.split(" ").length} <em>Words</em> <big>&</big>{" "}
+                {text.trim().split(" ").length} <em>Words</em> <big>&</big>{" "}
                 {text.length} <em>Characters</em>
               </p>
             </li>

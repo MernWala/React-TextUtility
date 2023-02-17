@@ -1,0 +1,11 @@
+.accordion-button:focus{
+    box-shadow: none!important;
+}
+
+.navLightShadow{
+    box-shadow: 1px 0px 5px var(--bs-light);
+}
+
+.navDarkShadow{
+    box-shadow: 1px 0px 5px var(--bs-dark);
+}

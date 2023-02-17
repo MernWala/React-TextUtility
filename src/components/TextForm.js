@@ -19,9 +19,18 @@ export default function TextForm(props) {
     setText(event.target.value);
   };
 
+  // creadits Code with Harry
+  const removeExtraSpace = (event) => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  }
+
+  // Credits: Code with Harry
   let copyToClipboard = (event) => {
-    console.log("Copy button is pushed");
-  };
+    let text = document.querySelector('#MyBox');
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  }
 
   let capitilize = () => {
     let rawData = text;
@@ -60,6 +69,10 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-1" onClick={capitilize}>
           Capitilize
         </button>
+
+        <button className="btn btn-primary mx-1" onClick={removeExtraSpace}>
+          Remove Extra Space
+        </button>
       </div>
 
       <div className="container my-3">
@@ -81,11 +94,10 @@ export default function TextForm(props) {
               </p>
             </li>
           </ul>
-
           <h5 className="text-decoration-underline">
             <em>Preview Text:&nbsp;</em>
           </h5>
-          <p>{text}</p>
+          <p>{text.length > 0 ? text : "Write somthing to use Text Util"}</p>
         </div>
       </div>
     </>

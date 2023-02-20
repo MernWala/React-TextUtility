@@ -3,16 +3,26 @@ import { FaCopy } from "react-icons/fa";
 import { VscClearAll } from "react-icons/vsc";
 
 export default function TextForm(props) {
+  if (props.mode === 'light') {
+    document.body.style.backgroundColor = 'var(--bs-light)';
+    document.body.style.color = 'var(--bs-dark)';
+  } else {
+    document.body.style.backgroundColor = 'var(--bs-dark)';
+    document.body.style.color = 'var(--bs-light)';
+  }
+
   const [text, setText] = useState("");
 
   const toUpperCase = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.alert("Converted to Uppercase", "success");
   };
 
   const toLowerCase = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.alert("Converted to Lowercase", "success");
   };
 
   const handleOnChange = (event) => {
@@ -23,6 +33,7 @@ export default function TextForm(props) {
   const removeExtraSpace = (event) => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.alert("Removed Extra spacess", "success");
   }
 
   // Credits: Code with Harry
@@ -30,28 +41,29 @@ export default function TextForm(props) {
     let text = document.querySelector('#MyBox');
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.alert("Copied", "success");
   }
 
   let capitilize = () => {
     let rawData = text;
     let newArray = rawData.split(" ");
     let finalData = "";
-    for(let i=0; i<newArray.length; i++)
+    for (let i = 0; i < newArray.length; i++)
       finalData = finalData + newArray[i].charAt(0).toUpperCase() + newArray[i].toLowerCase().substr(1, newArray[i].length - 1) + " ";
     setText(finalData)
+    props.alert("Capitilize", "success");
   }
-
 
   return (
     <>
       <div className="container my-3">
         <div className="col-sm-12 d-flex justify-content-between">
-          <h3>{props.heading}</h3>
+          <h3>Enter the text to analyze below</h3>
           <div>
             <button className="btn btn-outline-primary mx-1 btn-sm" onClick={copyToClipboard}>
               <FaCopy />
             </button>
-            <button className="btn btn-outline-danger mx-1 btn-sm" onClick={() => {setText("")}}>
+            <button className="btn btn-outline-danger mx-1 btn-sm" onClick={() => { setText(""); props.alert("Text Deleted", "warning")}}>
               <VscClearAll />
             </button>
           </div>

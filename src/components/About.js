@@ -1,34 +1,7 @@
-import React, {useState} from 'react'
-// import { VscNoNewline } from 'react-icons/vsc';
+import React from 'react'
 import '../css/custom.css';
 
 export default function About() {
-    // let [BtnState, setBtnState] = useState("Dark");
-
-    const [MyStyle, setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white'
-    });
-
-    const [btnMode, setBtnMode] = useState("Dark");
-
-    const toggleStyle = () => {
-        if(MyStyle.color === 'black'){
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black',
-                border: '1px solid white'
-            })
-            setBtnMode("Light");
-        }else{
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setBtnMode("Dark");
-        }
-    }
-
     return (
         <div className='container' style={MyStyle}>
             <h2 className='m-3'>About Us</h2>

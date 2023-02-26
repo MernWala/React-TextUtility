@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../css/custom.css';
 import '../css/footer.scss';
 
@@ -24,12 +25,12 @@ export default function footer() {
                                 <span>Important Links</span>
                                 <div className='imp-links'>
                                     <ul>
-                                        <li><a href=''>
+                                        <li><a href='/'>
                                         <i className="fa-solid fa-angles-right"></i>&nbsp;
                                             Home
                                         </a></li>
 
-                                        <li><a href=''>
+                                        <li><a href='/about'>
                                         <i className="fa-solid fa-angles-right"></i>&nbsp;
                                             About
                                         </a></li>

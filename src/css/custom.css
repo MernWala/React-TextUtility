@@ -9,3 +9,39 @@
 .navDarkShadow{
     box-shadow: 1px 0px 5px var(--bs-dark);
 }
+
+.textForm-prev-underline{
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+.disableFocus:focus{
+    box-shadow: none;
+}
+
+/* ===== Footer page desine ===== */
+.imp-links li a,
+.social li a{
+    position: relative;
+    transition: all .3s ease!important;
+}
+
+.imp-links li a:hover{
+    transition: all .3s ease!important;
+    margin-left: .5rem;
+}
+
+.social li a:hover{
+    top: -.5rem;
+}
+
+.textForm-ul{
+    padding: 0;
+}
+
+.textForm-ul li{
+    list-style: none;
+    font-size: .8rem;
+    line-height: .5rem;
+    font-style: italic;
+}

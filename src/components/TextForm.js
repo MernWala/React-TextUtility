@@ -57,59 +57,58 @@ export default function TextForm(props) {
   return (
     <>
       <div className="container my-3">
-        <div className="col-sm-12 d-flex justify-content-between">
-          <h3>Enter the text to analyze below</h3>
-          <div>
-            <button className="btn btn-outline-primary mx-1 btn-sm" onClick={copyToClipboard}>
-              <FaCopy />
-            </button>
-            <button className="btn btn-outline-danger mx-1 btn-sm" onClick={() => { setText(""); props.alert("Text Deleted", "warning")}}>
-              <VscClearAll />
-            </button>
+        <div className="container my-3">
+          <div className="col-sm-12 d-flex justify-content-between">
+            <h3>Enter the text to analyze below</h3>
+            <div>
+              <button className="btn btn-outline-primary mx-1 btn-sm" onClick={copyToClipboard}>
+                <FaCopy />
+              </button>
+              <button className="btn btn-outline-danger mx-1 btn-sm" onClick={() => { setText(""); props.alert("Text Deleted", "warning") }}>
+                <VscClearAll />
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="mb-3">
-          <textarea className="form-control" value={text} onChange={handleOnChange} id="MyBox" rows="10" placeholder="Enter Text Here"></textarea>
-        </div>
-        <button className="btn btn-primary mx-1" onClick={toUpperCase}>
-          Uppercase
-        </button>
-        <button className="btn btn-primary mx-1" onClick={toLowerCase}>
-          Lowercase
-        </button>
+          <div className="mb-3">
+            <textarea className="form-control disableFocus" value={text} onChange={handleOnChange} id="MyBox" rows="10" placeholder="Enter Text Here"></textarea>
+          </div>
+          <button className="btn btn-secondary fw-bold m-1" onClick={toUpperCase}>
+            Uppercase
+          </button>
+          <button className="btn btn-secondary fw-bold m-1" onClick={toLowerCase}>
+            Lowercase
+          </button>
 
-        <button className="btn btn-primary mx-1" onClick={capitilize}>
-          Capitilize
-        </button>
+          <button className="btn btn-secondary fw-bold m-1" onClick={capitilize}>
+            Capitilize
+          </button>
 
-        <button className="btn btn-primary mx-1" onClick={removeExtraSpace}>
-          Remove Extra Space
-        </button>
-      </div>
-
-      <div className="container my-3">
-        <div className="header d-flex align-items-center justify-content-center border border-bottom-0 p-2">
-          <h4>Your Text Summury</h4>
+          <button className="btn btn-secondary fw-bold m-1" onClick={removeExtraSpace}>
+            Remove Extra Space
+          </button>
         </div>
-        <div className="col-12 col-sm-12 border px-4 py-2">
-          <ul>
-            <li>
-              <p>
-                {text.trim().split(" ").length} <em>Words</em> <big>&</big>{" "}
-                {text.length} <em>Characters</em>
-              </p>
-            </li>
-            <li>
-              <p>
-                You need {0.008 * text.split(" ").length}min to read above
-                paragraph
-              </p>
-            </li>
-          </ul>
-          <h5 className="text-decoration-underline">
-            <em>Preview Text:&nbsp;</em>
-          </h5>
-          <p>{text.length > 0 ? text : "Write somthing to use Text Util"}</p>
+
+        <div className="container my-3">
+          <div className="col-12 col-sm-12 px-2 py-2">
+            <ul className="textForm-ul">
+              <li>
+                <p>
+                  {text.trim().split(" ").length} <em>Words</em> <big>&</big>{" "}
+                  {text.length} <em>Characters</em>
+                </p>
+              </li>
+              <li>
+                <p>
+                  You need {0.008 * text.split(" ").length}min to read above
+                  paragraph
+                </p>
+              </li>
+            </ul>
+            <h5 className="textForm-prev-underline">
+              Preview Text&nbsp;
+            </h5>
+            <p style={{ paddingLeft: '2rem' }} className="fw-lighter fst-italic">{text.length > 0 ? text : "Write somthing to use Text Util"}</p>
+          </div>
         </div>
       </div>
     </>

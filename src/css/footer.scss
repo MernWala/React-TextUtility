@@ -3,7 +3,6 @@
     align-items: center;
     justify-content: center;
     background-color: var(--bs-gray-800);
-    margin-top: 5rem;
 
     .footerSubCon {
         display: flex;
@@ -75,13 +74,6 @@
                                 a{
                                     color: var(--bs-light)!important;
                                     text-decoration: none;
-                                    transition: left 1s ease!important;
-
-                                    &:hover{
-                                        position: relative;
-                                        left: .5rem;
-                                        transition: left 1s ease!important;
-                                    }
                                 }
                             }
                         }
@@ -94,14 +86,6 @@
                                 margin: 0rem .5rem;
                                 a{
                                     font-size: 1.5rem;
-                                    transition: top 1s ease!important;
-
-                                    &:hover{
-                                        position: relative;
-                                        left: 0rem;
-                                        top: -.5rem;
-                                        transition: top 1s ease!important;
-                                    }
                                 }
                             }
                         }

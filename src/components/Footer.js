@@ -25,15 +25,15 @@ export default function footer() {
                                 <span>Important Links</span>
                                 <div className='imp-links'>
                                     <ul>
-                                        <li><a href='/'>
+                                        <li><Link to='/'>
                                         <i className="fa-solid fa-angles-right"></i>&nbsp;
                                             Home
-                                        </a></li>
+                                        </Link></li>
 
-                                        <li><a href='/about'>
+                                        <li><Link to='/about'>
                                         <i className="fa-solid fa-angles-right"></i>&nbsp;
                                             About
-                                        </a></li>
+                                        </Link></li>
 
                                     </ul>
                                 </div>
@@ -62,7 +62,6 @@ export default function footer() {
                                         <li><a href="mailto:shivamkumarkashyap12@gmail.com" target="self">
                                             <i className="fa-solid fa-envelopes-bulk"></i>
                                         </a></li>
-
                                     </ul>
                                 </div>
                             </div>

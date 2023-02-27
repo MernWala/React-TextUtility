@@ -72,18 +72,16 @@ export default function TextForm(props) {
           <div className="mb-3">
             <textarea className="form-control disableFocus" value={text} onChange={handleOnChange} id="MyBox" rows="10" placeholder="Enter Text Here"></textarea>
           </div>
-          <button className="btn btn-secondary fw-bold m-1" onClick={toUpperCase}>
+          <button className={`btn btn-${props.mode === 'light' ? `primary` : `secondary`} fw-bold m-1`} onClick={toUpperCase}>
             Uppercase
           </button>
-          <button className="btn btn-secondary fw-bold m-1" onClick={toLowerCase}>
+          <button className={`btn btn-${props.mode === 'light' ? `primary` : `secondary`} fw-bold m-1`} onClick={toLowerCase}>
             Lowercase
           </button>
-
-          <button className="btn btn-secondary fw-bold m-1" onClick={capitilize}>
+          <button className={`btn btn-${props.mode === 'light' ? `primary` : `secondary`} fw-bold m-1`} onClick={capitilize}>
             Capitilize
           </button>
-
-          <button className="btn btn-secondary fw-bold m-1" onClick={removeExtraSpace}>
+          <button className={`btn btn-${props.mode === 'light' ? `primary` : `secondary`} fw-bold m-1`} onClick={removeExtraSpace}>
             Remove Extra Space
           </button>
         </div>
@@ -93,7 +91,7 @@ export default function TextForm(props) {
             <ul className="textForm-ul">
               <li>
                 <p>
-                  {text.trim().split(" ").length} <em>Words</em> <big>&</big>{" "}
+                  {text === '' ? 0 : text.trim().split(" ").length} <em>Words</em> <big>&</big>{" "}
                   {text.length} <em>Characters</em>
                 </p>
               </li>
@@ -107,7 +105,7 @@ export default function TextForm(props) {
             <h5 className="textForm-prev-underline">
               Preview Text&nbsp;
             </h5>
-            <p style={{ paddingLeft: '2rem' }} className="fw-lighter fst-italic">{text.length > 0 ? text : "Write somthing to use Text Util"}</p>
+            <p style={{ paddingLeft: '2rem' }} className="fst-italic">{text.length > 0 ? text : "Write somthing to use Text Util"}</p>
           </div>
         </div>
       </div>

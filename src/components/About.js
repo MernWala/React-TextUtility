@@ -1,39 +1,23 @@
 import React from 'react'
 import '../css/custom.css';
-import { useState } from 'react';
 
 export default function About(props) {
-    const [MyStyle, setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white'
-    });
-
-    const [btnMode, setBtnMode] = useState("Dark");
-
-    const toggleStyle = () => {
-        if(MyStyle.color === 'black'){
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black',
-                border: '1px solid white'
-            })
-            setBtnMode("Light");
-        }else{
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setBtnMode("Dark");
-        }
+    
+    if (props.mode === 'light') {
+        document.body.style.backgroundColor = 'var(--bs-light)';
+        document.body.style.color = 'var(--bs-dark)';
+    } else {
+        document.body.style.backgroundColor = 'var(--bs-dark)';
+        document.body.style.color = 'var(--bs-light)';
     }
 
     return (
-        <div className='container' style={MyStyle}>
+        <div className='container my-4' style={{height: 'calc(100vh - 5rem - 13rem)'}}> 
             <h2 className='m-3'>About Us</h2>
             <div className="accordion" id="accordionExample">
-                <div className="accordion-item" style={MyStyle}>
+                <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
-                        <button style={MyStyle} className="accordion-button no-focus" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button className="accordion-button no-focus" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             Accordion Item #1
                         </button>
                     </h2>
@@ -43,9 +27,9 @@ export default function About(props) {
                         </div>
                     </div>
                 </div>
-                <div className="accordion-item" style={MyStyle}>
+                <div className="accordion-item">
                     <h2 className="accordion-header" id="headingTwo">
-                        <button style={MyStyle} className="accordion-button no-focus collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <button className="accordion-button no-focus collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             Accordion Item #2
                         </button>
                     </h2>
@@ -55,9 +39,9 @@ export default function About(props) {
                         </div>
                     </div>
                 </div>
-                <div className="accordion-item" style={MyStyle}>
+                <div className="accordion-item">
                     <h2 className="accordion-header" id="headingThree">
-                        <button style={MyStyle} className="accordion-button no-focus collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <button className="accordion-button no-focus collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                             Accordion Item #3
                         </button>
                     </h2>
@@ -67,9 +51,6 @@ export default function About(props) {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="container my-3 p-0">
-                <button type="button" onClick={toggleStyle} className="btn btn-primary">{btnMode}</button>
             </div>
         </div>
     )

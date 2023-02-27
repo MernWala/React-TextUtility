@@ -4,11 +4,17 @@ import '../css/custom.css';
 
 export default function Navbar(props) {
 
+  const navStyle = {
+    position: 'sticky',
+    top: '0px',
+    backdropFilter: 'blur(5px)'
+  }
+
   return (
     <>
-      <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode === 'dark' ? 'dark' : 'light'} px-5 justify-content-between ${props.mode === 'light' ? 'navDarkShadow' : 'navLightShadow'} mb-4`}>
+      <nav className={`navbar navbar-expand-lg navbar-${props.mode === 'dark' ? 'dark' : 'light'} px-5 justify-content-between ${props.mode === 'light' ? 'navDarkShadow' : 'navLightShadow'}`} style={navStyle}>
         <div className="d-flex">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="/" style={{fontWeight: 800}}>
             TextUtil
           </a>
           <ul className="navbar-nav mb-2 mb-lg-0">
